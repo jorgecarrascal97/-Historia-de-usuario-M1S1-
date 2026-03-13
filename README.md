@@ -3,76 +3,27 @@
 
       
 
-Hello. My name is JORGE CARRASCAL 
 
-Today I want to talk about my Python project.
-
-This project is a basic ATM program.
-It is a simple simulation of a bank ATM.
-
-The name of the ATM is TechBank Riwi Digital.
-
-First, the program shows a welcome message to the user.
-Then, the program asks the user to enter a password.
-
-The system gives the user three tries to enter the correct password.
-If the password is correct, the program shows the main menu.
-
-The menu has three options.
-
-The first option is to check the balance.
-The second option is to withdraw money.
-The third option is to exit the program.
-
-If the user chooses option one, the program shows the account balance.
-
-If the user chooses option two, the program asks how much money the user wants to withdraw.
-
-Then the system checks the balance.
-
-If the user does not have enough money, the program shows a message that says "insufficient balance".
-
-If the user has enough money, the program subtracts the money from the balance.
-
-After that, the program shows the amount withdrawn and the new balance.
-
-If the user chooses option three, the program ends and says thank you for using the ATM.
-
-Right now, the program is simulating the process of an ATM system.
-
-
-print("bienvenido a cajero automatico techbank riwi digital") 
-tries = 0
-maxtries = 3
-password = "1234"
-mount= 1000
-
-while tries < maxtries:
-    clave = input("ingrese su clave: ")
-    if clave == password: 
-        print("clave correcta, bienvenido")
-        
-        print("n---MENU PRINCIPAL---")  
-        print("1. consultar saldo")
-        print("2. retirar dinero")
-        print("3. salir")
-
-        action = int (input ("que desea hacer ?"))
-       
-
-    if action == 1:
-        print("su saldo es de :", mount) 
-
-    elif action == 2:
-        withdraw = int (input("cuanto dinero desea retirar?"))
-
-        if withdraw > mount:
-            print(" saldo insufuciente")
+nombre = input("Ingrese el nombre del producto: ")
+while True:
+    try:
+        precio = float(input("Ingrese el precio del producto: "))
+        if precio < 0:
+            print("Error: El precio no puede ser negativo.")
         else:
-            mount = mount - withdraw 
-            print ("valor a retirar: ", withdraw)
-            print ("su nuevo saldo es :", mount)
+            break
+    except ValueError:
+        print("Error: Debe ingresar un número válido para el precio.")
+while True:
+    try:
+        cantidad = int(input("Ingrese la cantidad del producto: "))
+        if cantidad < 0:
+            print("Error: La cantidad no puede ser negativa.")
+        else:
+            break
+    except ValueError:
+        print("Error: Debe ingresar un número entero válido para la cantidad.")
 
-    elif action == 3: 
-        print ( " gracias por usar nuestro cajero automatico, vuelva pronto")
-        break 
+costo_total = precio * cantidad
+
+print(f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
